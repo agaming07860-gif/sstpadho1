@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SST Notes | Class 6–12</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#eef7ff,#fff8e8);color:#102a56}
+.container{max-width:1200px;margin:auto;padding:28px 18px}
+.hero{background:#0b3158;color:white;border-radius:28px;padding:45px 25px;text-align:center;box-shadow:0 15px 40px #0002}
+.hero h1{font-size:clamp(42px,7vw,78px);margin:0;font-weight:800}
+.hero h1 span{color:#ffd51f}
+.hero p{font-size:20px;margin:12px 0 0}
+.badge{display:inline-block;background:#ffd51f;color:#142b4f;padding:12px 22px;border-radius:30px;font-weight:700;margin-top:22px}
+.section-title{text-align:center;font-size:32px;margin:40px 0 20px}
+.classes{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}
+.class-card{border:0;border-radius:18px;padding:22px 10px;color:white;font-size:19px;font-weight:700;cursor:pointer;box-shadow:0 8px 18px #0002;transition:.2s}
+.class-card:hover{transform:translateY(-5px)}
+.c6{background:#7359d6}.c7{background:#39b86b}.c8{background:#ef5261}.c9{background:#2499df}.c10{background:#f39a20}.c11{background:#16a5a5}.c12{background:#6355c9}
+.subjects{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.subject{background:white;padding:24px;border-radius:20px;box-shadow:0 8px 25px #17385a18}
+.subject h3{margin:0 0 10px;font-size:23px}.subject p{color:#607089;line-height:1.5}
+.features{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;background:#ffffffcc;border-radius:24px;padding:22px;margin-top:35px}
+.feature{text-align:center;font-weight:700;padding:15px}.icon{font-size:38px;display:block;margin-bottom:8px}
+.download{text-align:center;margin:35px 0}
+.download a{display:inline-block;background:#ef3030;color:white;text-decoration:none;padding:18px 38px;border-radius:50px;font-size:24px;font-weight:800;box-shadow:0 8px 18px #ef303055}
+.download a:hover{transform:scale(1.03)}
+.search{width:100%;padding:17px;border:2px solid #dce6f2;border-radius:15px;font-size:17px;margin:25px 0}
+#message{text-align:center;color:#65758a;min-height:24px}
+@media(max-width:800px){
+.classes{grid-template-columns:repeat(2,1fr)}.subjects{grid-template-columns:1fr 1fr}.features{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.container{padding:15px}.hero{padding:32px 15px}.subjects{grid-template-columns:1fr}.features{grid-template-columns:1fr}.hero p{font-size:16px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<section class="hero">
+<h1><span>SST</span> Notes</h1>
+<p>Classes 6–12 • All Subjects • Chapter-wise Study Material</p>
+<div class="badge">Complete Notes • Revision • Questions</div>
+</section>
+
+<h2 class="section-title">Choose Your Class</h2>
+<div class="classes">
+<button class="class-card c6" onclick="selectClass(6)">Class 6</button>
+<button class="class-card c7" onclick="selectClass(7)">Class 7</button>
+<button class="class-card c8" onclick="selectClass(8)">Class 8</button>
+<button class="class-card c9" onclick="selectClass(9)">Class 9</button>
+<button class="class-card c10" onclick="selectClass(10)">Class 10</button>
+<button class="class-card c11" onclick="selectClass(11)">Class 11</button>
+<button class="class-card c12" onclick="selectClass(12)">Class 12</button>
+</div>
+
+<input class="search" id="search" placeholder="🔎 Search subjects or features..." oninput="searchContent()">
+<div id="message"></div>
+
+<h2 class="section-title">SST Subjects</h2>
+<div class="subjects" id="subjects">
+<div class="subject"><h3>📕 History</h3><p>Chapter-wise notes, timelines, important events and revision points.</p></div>
+<div class="subject"><h3>🌍 Geography</h3><p>Concept notes, maps, locations, resources and important facts.</p></div>
+<div class="subject"><h3>🏛️ Civics / Political Science</h3><p>Easy explanations, key terms and important questions.</p></div>
+<div class="subject"><h3>💰 Economics</h3><p>Definitions, concepts, examples and exam-focused revision.</p></div>
+</div>
+
+<div class="features">
+<div class="feature"><span class="icon">📚</span>Chapter-wise Notes</div>
+<div class="feature"><span class="icon">❓</span>Important Questions</div>
+<div class="feature"><span class="icon">🗺️</span>Maps & Diagrams</div>
+<div class="feature"><span class="icon">📅</span>Dates & People</div>
+<div class="feature"><span class="icon">🧠</span>Quick Revision</div>
+</div>
+
+<div class="download">
+<a href="sst-notes.zip" download>⬇ Download SST Notes</a>
+<p id="downloadInfo">Put your completed <b>sst-notes.zip</b> file in the same folder as this HTML file.</p>
+</div>
+</div>
+
+<script>
+function selectClass(n){
+ document.getElementById("message").textContent =
+ "Class " + n + " selected — connect this button to your Class " + n + " notes/PDF page.";
+}
+function searchContent(){
+ const q=document.getElementById("search").value.toLowerCase();
+ document.querySelectorAll(".subject").forEach(card=>{
+   card.style.display=card.textContent.toLowerCase().includes(q)?"block":"none";
+ });
+}
+</script>
+</body>
+</html>
